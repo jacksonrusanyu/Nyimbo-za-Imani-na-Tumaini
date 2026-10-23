@@ -68,6 +68,7 @@ article h1 .n{color:var(--acc);margin-right:.35em}
  <div class="tools">
   <button class="chip" id="chordBtn" aria-pressed="false">Chords</button>
   <label class="chip sel dis" id="capoWrap">Capo <select id="capoSel" aria-label="Chagua nafasi ya capo" disabled></select></label>
+  <button class="chip" id="installBtn" hidden style="background:var(--acc);border-color:var(--acc);color:#fff">&#11015; Install app</button>
   <span class="sp"></span>
   <button class="chip" id="smaller" aria-label="Punguza herufi">A-</button>
   <button class="chip" id="bigger" aria-label="Ongeza herufi">A+</button>
@@ -179,7 +180,15 @@ var SONGS = [{"n":1,"t":"Injili ni Uwezo","st":null,"capo":3,"sec":[{"k":"v","l"
  $('themeBtn').onclick=function(){var dark=document.documentElement.getAttribute('data-theme')==='dark'||(!S.theme&&window.matchMedia('(prefers-color-scheme:dark)').matches);S.theme=dark?'light':'dark';store.set('theme',S.theme);applyTheme()};
  document.addEventListener('keydown',function(e){var n=route();if(!n||e.target.tagName==='INPUT')return;var i=SONGS.map(function(s){return s.n}).indexOf(n);
   if(e.key==='ArrowRight'&&SONGS[i+1])location.hash='#/'+SONGS[i+1].n;if(e.key==='ArrowLeft'&&SONGS[i-1])location.hash='#/'+SONGS[i-1].n;});
- window.addEventListener('hashchange',show);
+window.addEventListener('hashchange',show);
+ var dp=null,standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+ window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;if(!standalone)$('installBtn').hidden=false});
+ window.addEventListener('appinstalled',function(){dp=null;$('installBtn').hidden=true});
+ if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!standalone)$('installBtn').hidden=false;
+ $('installBtn').onclick=function(){
+  if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;$('installBtn').hidden=true})}
+  else alert("Kuiweka kama app kwenye iPhone/iPad: fungua link hii kwenye Safari, bonyeza kitufe cha Share (mraba wenye mshale), kisha chagua 'Add to Home Screen'.");
+ };
  applyTheme();applyFs();show();
  if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){navigator.serviceWorker.register('sw.js').catch(function(){})}
 })();
