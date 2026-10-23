@@ -58,10 +58,14 @@ article h1 .n{color:var(--acc);margin-right:.35em}
 .nav button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px;cursor:pointer;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nav button:disabled{opacity:.35;cursor:default}
 .hint{color:var(--mute);font-size:.82rem;margin:4px 0 0}
-@media print{header,.nav,.hint{display:none}body{background:#fff}}
+#hero{max-width:760px;margin:0 auto;aspect-ratio:1080/560;background:#0f141d url(cover.jpg) center 40%/cover no-repeat;position:relative;border-radius:0 0 16px 16px;overflow:hidden}
+#hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 60%,rgba(0,0,0,.28))}
+#hero.small{aspect-ratio:auto;height:72px;background-image:url(cover-top.jpg);background-position:center 50%}
+@media print{#hero,header,.nav,.hint{display:none}body{background:#fff}}
 </style>
 </head>
 <body>
+<div id="hero" role="img" aria-label="Jalada la kitabu: Nyimbo za Imani na Tumaini"></div>
 <header>
  <div class="bar"><button class="back" id="back" aria-label="Rudi kwenye orodha">&#8592;</button><div class="brand" id="brand">Nyimbo za Tumaini na Imani</div>
   <button class="chip" id="themeBtn" aria-label="Badilisha rangi">&#9680;</button></div>
@@ -137,6 +141,7 @@ var SONGS = [{"n":1,"t":"Injili ni Uwezo","st":null,"capo":3,"sec":[{"k":"v","l"
  function show(){
   var n=route(),song=n&&SONGS.filter(function(s){return s.n===n})[0];
   syncBtns();
+  $('hero').className=song?'small':'';
   if(song){
    var idx=SONGS.indexOf(song),prev=SONGS[idx-1],next=SONGS[idx+1];
    document.title=song.n+'. '+song.t+' - Nyimbo za Tumaini na Imani';
