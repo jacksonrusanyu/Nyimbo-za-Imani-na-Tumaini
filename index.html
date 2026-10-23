@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nyimbo za Tumaini na Imani</title>
 <meta name="description" content="Nyimbo za Tumaini na Imani - maneno na chords za gitaa">
-<meta name="theme-color" content="#8a1c1c">
+<meta name="theme-color" content="#6b6258">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <style>
-:root{--bg:#faf8f5;--card:#fff;--ink:#1d1b19;--mute:#6b645d;--line:#e6e0d8;--acc:#8a1c1c;--accsoft:#f6e7e5;--chord:#1b4f9c;--capo:#b5530a;--fs:19px}
-:root[data-theme=dark]{--bg:#15130f;--card:#1e1b17;--ink:#ece6dd;--mute:#a39b90;--line:#332e27;--acc:#e0877f;--accsoft:#2d1f1d;--chord:#7fb2ff;--capo:#f0a35e}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#15130f;--card:#1e1b17;--ink:#ece6dd;--mute:#a39b90;--line:#332e27;--acc:#e0877f;--accsoft:#2d1f1d;--chord:#7fb2ff;--capo:#f0a35e}}
+:root{--bg:#f6f3ec;--card:#fffdf8;--ink:#26221d;--mute:#756d62;--line:#e4ddcd;--acc:#6b6258;--accsoft:#eee8dc;--chord:#46657d;--capo:#8b7355;--fs:19px}
+:root[data-theme=dark]{--bg:#1c1a17;--card:#26231f;--ink:#efe9dd;--mute:#aaa092;--line:#3a352e;--acc:#d8ad9d;--accsoft:#332d27;--chord:#9cc4dc;--capo:#b79b81}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c1a17;--card:#26231f;--ink:#efe9dd;--mute:#aaa092;--line:#3a352e;--acc:#d8ad9d;--accsoft:#332d27;--chord:#9cc4dc;--capo:#b79b81}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 button,input{font:inherit;color:inherit}
-header{position:sticky;top:0;z-index:10;background:linear-gradient(rgba(8,10,18,.50),rgba(8,10,18,.50)),#0d1119 url(cover-eagle.jpg) center 42%/min(100%,760px) auto no-repeat;border-bottom:1px solid var(--line);color:#fff}
-header .chip{background:rgba(8,10,18,.45);border-color:rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(2px)}
-header .chip[aria-pressed=true],header .chip.on{background:var(--acc);border-color:#fff;color:#fff}
-header .sel.on{background:var(--capo);border-color:#fff}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(rgba(70,64,54,.50),rgba(70,64,54,.50)),#6b6258 url(cover-eagle.jpg) center 42%/min(100%,760px) auto no-repeat;border-bottom:1px solid var(--line);color:#fff}
+header .chip{background:rgba(70,64,54,.50);border-color:rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(2px)}
+header .chip[aria-pressed=true],header .chip.on{background:#f3ecdc;border-color:#f3ecdc;color:#3a342a;font-weight:700}
+header .sel.on{background:#f3ecdc;border-color:#f3ecdc;color:#3a342a}
 header .sel select option{color:#000;background:#fff}
 .bar{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .brand{font:700 1.05rem Georgia,"Times New Roman",serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -72,7 +72,7 @@ article h1 .n{color:var(--acc);margin-right:.35em}
  <div class="tools">
   <button class="chip" id="chordBtn" aria-pressed="false">Chords</button>
   <label class="chip sel dis" id="capoWrap">Capo <select id="capoSel" aria-label="Chagua nafasi ya capo" disabled></select></label>
-  <button class="chip" id="installBtn" hidden style="background:var(--acc);border-color:var(--acc);color:#fff">&#11015; Install app</button>
+  <button class="chip" id="installBtn" hidden style="background:#f3ecdc;border-color:#f3ecdc;color:#3a342a;font-weight:700">&#11015; Install app</button>
   <span class="sp"></span>
   <button class="chip" id="smaller" aria-label="Punguza herufi">A-</button>
   <button class="chip" id="bigger" aria-label="Ongeza herufi">A+</button>
