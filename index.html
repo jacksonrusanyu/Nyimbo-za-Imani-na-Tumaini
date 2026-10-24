@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nyimbo za Tumaini na Imani</title>
-<meta name="description" content="Nyimbo za Tumaini na Imani - maneno na chords za gitaa">
+<title>Nyimbo za Imani na Tumaini</title>
+<meta name="description" content="Nyimbo za Imani na Tumaini - maneno na chords za gitaa">
 <meta name="theme-color" content="#6b6258">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -86,7 +86,7 @@ article h1 .n{color:var(--acc);margin-right:.35em}
 </head>
 <body>
 <header>
- <div class="bar"><button class="back" id="back" aria-label="Rudi kwenye orodha">&#8592;</button><div class="brand" id="brand">Nyimbo za Tumaini na Imani</div>
+ <div class="bar"><button class="back" id="back" aria-label="Rudi kwenye orodha">&#8592;</button><div class="brand" id="brand">Nyimbo za Imani na Tumaini</div>
   <button class="chip" id="themeBtn" aria-label="Badilisha rangi">&#9680;</button></div>
  <div class="tools">
   <button class="chip" id="chordBtn" aria-pressed="false">Chords</button>
@@ -181,7 +181,7 @@ var SONGS = [{"n":1,"t":"Injili ni Uwezo","st":null,"b":[{"k":"v","ln":["Injili 
   syncBtns();
   if(song){
    var idx=SONGS.indexOf(song),prev=SONGS[idx-1],next=SONGS[idx+1];
-   document.title=song.n+'. '+song.t+' - Nyimbo za Tumaini na Imani';
+   document.title=song.n+'. '+song.t+' - Nyimbo za Imani na Tumaini';
    $('back').style.display='block';$('brand').textContent=song.n+'. '+song.t;
    song._hasLab=song.b.some(function(x){return x.k==='l'});song._hasNum=song.b.some(function(x){return !!x.num});
    var h='<article'+(song._hasNum?'':' class="nonum"')+'><h1><span class="n">'+song.n+'.</span>'+esc(song.t)+'</h1>';
@@ -199,8 +199,8 @@ var SONGS = [{"n":1,"t":"Injili ni Uwezo","st":null,"b":[{"k":"v","ln":["Injili 
    if(next)$('next').onclick=function(){location.hash='#/'+next.n};
    window.scrollTo(0,0);
   }else{
-   document.title='Nyimbo za Tumaini na Imani';
-   $('back').style.display='none';$('brand').textContent='Nyimbo za Tumaini na Imani';
+   document.title='Nyimbo za Imani na Tumaini';
+   $('back').style.display='none';$('brand').textContent='Nyimbo za Imani na Tumaini';
    app.innerHTML='<input class="search" id="q" type="search" placeholder="Tafuta kwa namba, jina au maneno..." autocomplete="off" value="'+esc(S.q)+'"><div class="count" id="cnt"></div><ul class="list" id="lst"></ul>';
    var q=$('q');q.oninput=function(){S.q=q.value;renderList()};renderList();
   }
